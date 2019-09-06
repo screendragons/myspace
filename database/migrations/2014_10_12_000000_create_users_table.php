@@ -14,20 +14,34 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigInteger('id')->unsigned();
+            // $table->bigInteger('id')->unsigned();
+            // $table->string('first_name');
+            // $table->string('last_name');
+            // $table->string('username');
+            // $table->string('email')->unique();
+            // $table->timestamp('email_verified_at')->nullable();
+            // $table->string('address');
+            // $table->integer('relationship_status');
+            // $table->string('password');
+            // $table->string('image_name');
+            // $table->string('zipcode');
+            // $table->timestamp('created_at')->nullable();
+            // $table->timestamp('updated_at')->nullable();
+            // $table->rememberToken();
+
+            $table->bigInteger('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('username');
             $table->string('email')->unique();
-            // $table->timestamp('email_verified_at')->nullable();
-            $table->string('address');
-            $table->integer('relation_status');
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('address');
+            $table->integer('relationship_status');
             $table->string('image');
             $table->string('zipcode');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
             $table->rememberToken();
-            $table->timestamps('created_at');
-            $table->timestamps('updated_at');
 
         });
     }

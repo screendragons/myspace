@@ -14,31 +14,32 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            // $table->bigInteger('id')->unsigned();
+
+            // $table->bigIncrements('id');
             // $table->string('first_name');
             // $table->string('last_name');
-            // $table->string('username');
             // $table->string('email')->unique();
             // $table->timestamp('email_verified_at')->nullable();
+            // $table->string('password');
             // $table->string('address');
             // $table->integer('relationship_status');
-            // $table->string('password');
-            // $table->string('image_name');
+            // $table->string('image');
             // $table->string('zipcode');
             // $table->timestamp('created_at')->nullable();
             // $table->timestamp('updated_at')->nullable();
             // $table->rememberToken();
 
-            $table->bigInteger('id');
-            $table->string('first_name');
-            $table->string('last_name');
+            $table->bigIncrements('id');
+            $table->string('username')->default();
+            $table->string('first_name')->default();
+            $table->string('last_name')->default();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('address');
-            $table->integer('relationship_status');
-            $table->string('image');
-            $table->string('zipcode');
+            $table->string('address')->default('');
+            $table->integer('relationship_status')->nullable();
+            $table->string('image')->nullable();
+            $table->string('zipcode')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->rememberToken();

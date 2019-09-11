@@ -30,16 +30,16 @@ class CreateUsersTable extends Migration
             // $table->rememberToken();
 
             $table->bigIncrements('id');
-            $table->string('username')->default();
-            $table->string('first_name')->default();
-            $table->string('last_name')->default();
+            $table->string('username');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('address')->default('');
-            $table->integer('relationship_status')->nullable();
-            $table->string('image')->nullable();
+            $table->string('address');
             $table->string('zipcode')->nullable();
+            $table->string('image')->nullable();
+            $table->integer('relationship_status')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->rememberToken();

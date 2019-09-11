@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                     Hello {{ Auth::user()->name }}, welcome back!
+                     Hello {{ Auth::user()->username }}, welcome back!
                 </div>
 
                 <div class="card-body">

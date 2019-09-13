@@ -19,5 +19,9 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/profile/upload', 'UploadController@index')->name('upload');
+
+Route::get('/profile/likes', 'LikesController@index')->name('likes');
+
 Auth::routes();
 

@@ -19,11 +19,11 @@
                         <br>
                         {{-- Deze knop gaat naar de pagina waar je afbeeldingen kan uploaden --}}
                         <p>Upload here your creation:</p>
-                        <a href="{{-- {{ route('image.create') }} --}}" class="btn btn-outline-info logout upload">
+                        <a href="{{ route('upload') }}" class="btn btn-outline-info logout upload">
                             Upload
                         </a>
                         <p>Liked posts:</p>
-                        <a href="{{-- {{ route('likespage') }} --}}" class="btn btn-outline-danger logout upload">
+                        <a href="{{ route('likes') }}" class="btn btn-outline-danger logout upload">
                             Likes
                         </a>
                     </div>

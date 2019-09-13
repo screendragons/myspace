@@ -1,2 +1,30 @@
 .bg-white {
     background-color: #29bbfa !important;
+}
+.navbar-light .navbar-brand {
+    color: #fff;
+}
+.navbar-light .navbar-nav .nav-link {
+	color: #fff;
+}
+nav.navbar.navbar-expand-md.navbar-light.bg-white.shadow-sm {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+.card {
+	margin-top: 45px;
+}
+.btn-outline-danger {
+    color: #29bbfa;
+    border-color: #29bbfa;
+}
+.btn-outline-danger:hover {
+  color: #fff;
+  background-color: #29bbfa;
+  border-color: #29bbfa;
+}
+.btn-outline-danger:focus,
+.btn-outline-danger.focus {
+  box-shadow: #29bbfa;
+}

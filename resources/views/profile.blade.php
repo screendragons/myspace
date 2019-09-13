@@ -34,37 +34,39 @@
                 <form>
                     <div class="form-group">
                       <label for="exampleInputUsername">Username</label>
-                      {{ $users->username }}
+                        <p>
+                          <input type="username" class="form-control" id="exampleInputUsername" placeholder="Username" value="{{ $users->username }}">
+                        </p>
                       {{-- <input type="username" class="form-control" id="exampleInputUsername" placeholder="Username"> --}}
                     </div>
                     <div class="form-group">
                       <label for="exampleInputFirstname">First name</label>
-                      <input type="first_name" class="form-control" id="exampleInputFirst_name" placeholder="First name">
+                      <input type="first_name" class="form-control" id="exampleInputFirst_name" placeholder="First name" value="{{ $users->first_name }}">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputLastname">Last name</label>
-                      <input type="last_name" class="form-control" id="exampleInputLast_name" placeholder="Last name">
+                      <input type="last_name" class="form-control" id="exampleInputLast_name" placeholder="Last name" value="{{ $users->last_name }}">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+                      <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" value="{{ $users->password }}">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{ $users->email }}">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputAddress">Address</label>
-                      <input type="address" class="form-control" id="exampleInputAddress" placeholder="Address">
+                      <input type="address" class="form-control" id="exampleInputAddress" placeholder="Address" value="{{ $users->address }}">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputZipcode">Zipcode</label>
-                      <input type="zipcode" class="form-control" id="exampleInputZipcode" placeholder="Zipcode">
+                      <input type="zipcode" class="form-control" id="exampleInputZipcode" placeholder="Zipcode" value="{{ $users->zipcode }}">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputImage">Image</label>
-                      <input type="file" name="myFile" class="form-control" id="exampleInputImage" placeholder="Upload here your image">
+                      <input type="file" name="myFile" class="form-control" id="exampleInputImage" placeholder="Upload here your image" value="{{ $users->image }}">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputAddress1">Relationship status</label>

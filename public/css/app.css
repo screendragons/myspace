@@ -1123,6 +1123,9 @@ pre code {
     flex: 0 0 66.6666666667%;
     max-width: 66.6666666667%;
   }
+  .col-md-8.profile-section {
+      margin-top: 45px;
+  }
 
   .col-md-9 {
     flex: 0 0 75%;
@@ -2973,14 +2976,14 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-info {
-  color: #29bbfa;
-  border-color: #29bbfa;
+  color: #6cb2eb;
+  border-color: #6cb2eb;
 }
 
 .btn-outline-info:hover {
-  color: #fff;
-  background-color: #29bbfa;
-  border-color: #29bbfa;
+  color: #212529;
+  background-color: #6cb2eb;
+  border-color: #6cb2eb;
 }
 
 .btn-outline-info:focus,
@@ -3052,13 +3055,12 @@ fieldset:disabled a.btn {
 .btn-outline-danger:hover {
   color: #fff;
   background-color: #29bbfa;
-  border-color: #29bbfa;
+  border-color:#29bbfa;
 }
 
 .btn-outline-danger:focus,
 .btn-outline-danger.focus {
-/*  box-shadow: 0 0 0 0.2rem rgba(227, 52, 47, 0.5);*/
-  box-shadow: 0 0 0 0.2rem rgba(108, 178, 235, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(227, 52, 47, 0.5);
 }
 
 .btn-outline-danger.disabled,
@@ -4346,12 +4348,14 @@ input[type=button].btn-block {
 }
 
 .navbar {
-  position: relative;
+  position: fixed;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  width: 100%;
+  z-index: 1;
 }
 
 .navbar > .container,
@@ -4638,7 +4642,8 @@ input[type=button].btn-block {
 }
 
 .navbar-light .navbar-brand {
-  color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  position: fixed;
 }
 
 .navbar-light .navbar-brand:hover,
@@ -10608,6 +10613,7 @@ a.text-dark:focus {
 
   .navbar {
     display: none;
+    position: fixed;
   }
 
   .badge {

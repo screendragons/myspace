@@ -4,6 +4,7 @@
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link href="css/my.css" rel="stylesheet">
     </head>
     <div class="row justify-content-center">
             <div class="col-md-8 profile-section">
@@ -33,7 +34,8 @@
                 <form>
                     <div class="form-group">
                       <label for="exampleInputUsername">Username</label>
-                      <input type="username" class="form-control" id="exampleInputUsername" placeholder="Username">
+                      {{ $users->username }}
+                      {{-- <input type="username" class="form-control" id="exampleInputUsername" placeholder="Username"> --}}
                     </div>
                     <div class="form-group">
                       <label for="exampleInputFirstname">First name</label>

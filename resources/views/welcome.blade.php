@@ -102,7 +102,19 @@
                 <i class="fa fa-2x fa-angle-down"></i>
 
               </div>
+              Myspace is a similar with the socialmedia platform Facebook. But different..
+
+              How different? Only liking and no commenting.
+              <br>
+              <div>
+                <button type="button" class="btn btn-outline-primary">
+                  <a href="http://localhost/myspace/public/login">
+                    Login
+                  </a>
+                </button>
+              </div>
             </div>
+
           </div>
         </div>
       </div>

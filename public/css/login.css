@@ -1,0 +1,12 @@
+.bg-white {
+    background-color: #29bbfa !important;
+}
+.navbar-light .navbar-brand {
+    color: #fff;
+}
+.navbar-light .navbar-nav .nav-link {
+	color: #fff;
+}
+.card {
+	margin-top: 45px;
+}

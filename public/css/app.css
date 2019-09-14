@@ -1123,9 +1123,6 @@ pre code {
     flex: 0 0 66.6666666667%;
     max-width: 66.6666666667%;
   }
-  .col-md-8.profile-section {
-      margin-top: 45px;
-  }
 
   .col-md-9 {
     flex: 0 0 75%;
@@ -3054,13 +3051,8 @@ fieldset:disabled a.btn {
 
 .btn-outline-danger:hover {
   color: #fff;
-<<<<<<< HEAD
   background-color: #e3342f;
   border-color: #e3342f;
-=======
-  background-color: #29bbfa;
-  border-color:#29bbfa;
->>>>>>> master
 }
 
 .btn-outline-danger:focus,
@@ -4353,14 +4345,12 @@ input[type=button].btn-block {
 }
 
 .navbar {
-  position: fixed;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
-  width: 100%;
-  z-index: 1;
 }
 
 .navbar > .container,
@@ -4647,8 +4637,7 @@ input[type=button].btn-block {
 }
 
 .navbar-light .navbar-brand {
-  color: #fff;
-  position: fixed;
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .navbar-light .navbar-brand:hover,
@@ -10618,7 +10607,6 @@ a.text-dark:focus {
 
   .navbar {
     display: none;
-    position: fixed;
   }
 
   .badge {

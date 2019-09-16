@@ -39,6 +39,7 @@
     <div id="load"></div>
   </div>
 
+
   <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header page-scroll">
@@ -50,21 +51,29 @@
         </a>
       </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="/myspace/public/profile">My profile</a></li>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+          <ul class="nav navbar-nav">
+      @if(Auth::user()== true)
+            <li><a href="/myspace/public/profile">My profile</a></li>
+
+        @else
+          <li><a href="/myspace/public/login">Login</a></li>
+      @endif
           <li><a href="/myspace/public/home">Home</a></li>
+          <li><a href="#">Contact</a></li>
+      @if(Auth::user() == true)
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Contact</a></li>
+
               <li>
                 <a href="{{ route('logout') }}" method="post">
                   {{-- <form action="{{ route('logout') }}" method="post"> --}}
                     Log out
                 </a>
               </li>
+      @endif
              {{--  <li><a href="#">Example menu</a></li> --}}
             </ul>
           </li>
@@ -74,6 +83,7 @@
     </div>
     <!-- /.container -->
   </nav>
+
 
   <!-- Section: intro -->
   <section id="intro" class="intro">
@@ -105,6 +115,7 @@
               Myspace is a similar with the socialmedia platform Facebook. But different..
 
               How different? Only liking and no commenting.
+              <br>
               <br>
               <div>
                 <button type="button" class="btn btn-outline-primary">

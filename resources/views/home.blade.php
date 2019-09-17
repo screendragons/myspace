@@ -2,7 +2,11 @@
 
 @section('content')
 
-	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+{{-- 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 	</nav>
 		<div>Dit is de homepage</div>
+
+		 --}}
+
+		 Dadadada
 @endsection

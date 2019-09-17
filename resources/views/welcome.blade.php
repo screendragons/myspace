@@ -116,7 +116,10 @@
 
               How different? Only liking and no commenting.
               <br>
+<<<<<<< HEAD
               <br>
+=======
+>>>>>>> master
               <div>
                 <button type="button" class="btn btn-outline-primary">
                   <a href="http://localhost/myspace/public/login">

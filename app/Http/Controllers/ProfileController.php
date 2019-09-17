@@ -46,7 +46,49 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'file' => 'image|nullable|max:1999'
+        ]);
+
+        // Handle file upload
+        if($request->hasFile('file')){
+            // dd('here');
+            // Get file name with extension
+            $filenameWithExt = $request->file('file')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('file')->getClientOriginalName();
+            // Filename to store
+            $fileNameToStore = str_slug($filename.'_'.time()).'.'.$extension;
+            // Upload Image
+            Profile::make($request->file('file'))
+                ->resize(600, 300, function($constraint){
+                    $constraint->aspectRatio();
+                })
+                ->save(storage_path('app\\public\\'.$fileNameToStore));
+                // ->storeAs('public', $fileNameToStore);
+            // $path = $request->file('file')->storeAs('public', $fileNameToStore);
+            // $image = $request->file('file');
+            // $imageName = $image->getClientOriginalName();
+            // $image->move(public_path('images'),$filenameWithExt);
+        } else {
+            $fileNameToStore = 'no_image.jpg';
+        }
+
+        $upload = new Upload();
+        $upload->user_id = Auth::id();
+        $upload->name = $request->title;
+        $upload->filename = $fileNameToStore;
+        $upload->description = $request->body;
+        $upload->media_type = '';
+        $upload->datasize = 1;
+        $upload->save();
+
+        // dd($upload);
+
+        // return redirect()->back();
+         return redirect('profile');
     }
 
     /**

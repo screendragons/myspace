@@ -2,7 +2,7 @@
 
 @section('content')
 <head>
-    <link href="css/login.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 </head>
 <div class="container">
     <div class="row justify-content-center">

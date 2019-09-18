@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Profile;
 use App\User;
 use Auth;
+use Redirect;
+use DB;
 
 class ProfileController extends Controller
 {
@@ -110,18 +112,9 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        $users = User::where('id', $id)->first();
-        $users->username = request('username');
-        $users->first_name = request('first_name');
-        $users->last_name = request('last_name');
-        $users->password = request('password');
-        $users->email = request('email');
-        $users->address = request('address');
-        $users->zipcode = request('zipcode');
-        $users->image = request('image');
-        $users->save();
+        $user = User::find($id);
 
-        return redirect()->route('profile');
+        return view('profile')->with('user', $user);
     }
 
     /**
@@ -133,9 +126,32 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
+        try {
+            DB::beginTransaction();
+
+            // logica
+            $user = User::findOrFail($id);
+            $user->username = $request->username;
+            $user->first_name = $request->first_name;
+            $user->last_name = $request->last_name;
+            $user->email = $request->email;
+            $user->password = $request->password;
+            $user->address = $request->address;
+            $user->zipcode = $request->zipcode;
+            $user->image = $request->image;
+            $user->relationship_status = $request->relationship_status;
+            $user->save();
+
+            DB::commit();
+            return redirect::back();
 
 
+        }
+        catch(Exception $e) {
+            // later
+            DB::rollback();
 
+        }
     }
 
     /**
@@ -147,5 +163,32 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function update_image(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+
+            if ($user->image !== 'default.png') {
+                $file = 'images/image/' . $user->image;
+
+                if (File::exists($file)) {
+
+                     unlink($file);
+
+
+                }
+
+            }
+            User::make($image)->fit(300, 300)->save('storage/profile_images/' . $filename);
+            $user = Auth::user();
+            $user->image = $filename;
+            $user->save();
+
+
+            }
+            return Redirect::to('profile');
     }
 }

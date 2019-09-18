@@ -10660,6 +10660,10 @@ a.text-dark:focus {
   margin-top: 45px;
 }
 
+.navbar {
+  font-family: "Lexend Deca", sans-serif;
+}
+
 .bg-white {
   background-color: #29bbfa !important;
 }
@@ -10698,6 +10702,14 @@ nav.navbar.navbar-expand-md.navbar-light.bg-white.shadow-sm {
   box-shadow: #29bbfa;
 }
 
+.col-md-8.profile-section {
+  font-family: "Lexend Deca", sans-serif;
+}
+
+.navbar {
+  font-family: "Lexend Deca", sans-serif;
+}
+
 .form {
   margin-top: 45px !important;
 }
@@ -10730,5 +10742,9 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: #29bbfa;
+}
+
+.navbar {
+  font-family: "Lexend Deca", sans-serif;
 }
 

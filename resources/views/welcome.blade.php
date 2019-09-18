@@ -1,7 +1,4 @@
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +8,7 @@
   <title>Myspace</title>
 
   <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
   <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
   <!-- Fonts -->
@@ -20,7 +18,7 @@
   <!-- Squad theme CSS -->
   <link href="css/style.css" rel="stylesheet">
   <link href="color/default.css" rel="stylesheet">
-  <link href="css/my.css" rel="stylesheet">
+
 
 
 
@@ -93,7 +91,7 @@
       <h4>A social mediaplatform for everyone</h4>
     </div>
     <div class="page-scroll">
-      <a href="#service" class="btn btn-circle">
+      <a href="#about" class="btn btn-circle">
         <i class="fa fa-angle-double-down animated"></i>
       </a>
     </div>
@@ -179,6 +177,3 @@
   <script src="js/custom.js"></script>
   <script src="contactform/contactform.js"></script>
 
-</body>
-
-</html>

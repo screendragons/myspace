@@ -5,7 +5,7 @@
   <head>
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
   </head>
-  <div class="container">
+  <div class="container form">
     <form {{-- action="/action_page.php" --}}>
       <label for="firstname">First Name</label><br>
       <input type="text" id="firstname" name="firstname" placeholder="Your name.."><br>

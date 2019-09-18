@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 
-class HomeController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home')->with('users', $users);
+        return view('contact');
     }
 
     /**

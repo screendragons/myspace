@@ -110,18 +110,6 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
         $users = User::where('id', $id)->first();
         $users->username = request('username');
         $users->first_name = request('first_name');
@@ -134,6 +122,20 @@ class ProfileController extends Controller
         $users->save();
 
         return redirect()->route('profile');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+
+
+
     }
 
     /**

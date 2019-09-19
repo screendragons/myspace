@@ -13,7 +13,7 @@ class LikesController extends Controller
      */
     public function index()
     {
-        //
+        return view('likes');
     }
 
     /**

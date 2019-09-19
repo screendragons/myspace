@@ -33,5 +33,8 @@ Route::get('/profile/likes', 'LikesController@index')->name('likes');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
+Route::get('/addFavorite', 'FavoriteController@store');
+Route::get('/removeFavorite', 'FavoriteController@destroy');
+
 Auth::routes();
 

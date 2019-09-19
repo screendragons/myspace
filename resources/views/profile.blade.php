@@ -11,7 +11,7 @@
 
               <div class="card">
                   <div class="card-header">
-                      Hello {{ Auth::user()->first_name }}, welcome back!
+                      Hello {{ $users->first_name }}, welcome back!
                   </div>
                   <div class="card-body">
                       @if (session('status'))
@@ -33,44 +33,44 @@
               <h5>Edit profile</h5>
               <form>
                   <div class="form-group">
-                    <label for="exampleInputUsername">Username</label>
+                    <label for="exampleInputusersname">usersname</label>
                       <p>
-                        <input type="username" class="form-control" id="exampleInputUsername" placeholder="Username" value="{{ $user->username }}">
+                        <input type="usersname" class="form-control" id="exampleInputusersname" placeholder="usersname" value="{{ $users->usersname }}">
                       </p>
-                    {{-- <input type="username" class="form-control" id="exampleInputUsername" placeholder="Username"> --}}
+                    {{-- <input type="usersname" class="form-control" id="exampleInputusersname" placeholder="usersname"> --}}
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFirstname">First name</label>
-                    <input type="first_name" class="form-control" id="exampleInputFirst_name" placeholder="First name" value="{{ $user->first_name }}">
+                    <input type="first_name" class="form-control" id="exampleInputFirst_name" placeholder="First name" value="{{ $users->first_name }}">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputLastname">Last name</label>
-                    <input type="last_name" class="form-control" id="exampleInputLast_name" placeholder="Last name" value="{{ $user->last_name }}">
+                    <input type="last_name" class="form-control" id="exampleInputLast_name" placeholder="Last name" value="{{ $users->last_name }}">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" value="{{ $user->password }}">
+                    <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" value="{{ $users->password }}">
                   </div>
                   <div class="form-group">
                       <label for="exampleInputEmail">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{ $user->email }}">
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{ $users->email }}">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputAddress">Address</label>
-                    <input type="address" class="form-control" id="exampleInputAddress" placeholder="Address" value="{{ $user->address }}">
+                    <input type="address" class="form-control" id="exampleInputAddress" placeholder="Address" value="{{ $users->address }}">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputZipcode">Zipcode</label>
-                    <input type="zipcode" class="form-control" id="exampleInputZipcode" placeholder="Zipcode" value="{{ $user->zipcode }}">
+                    <input type="zipcode" class="form-control" id="exampleInputZipcode" placeholder="Zipcode" value="{{ $users->zipcode }}">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputImage">Image</label>
-                   {{--  <input type="file" name="myFile" class="form-control" id="exampleInputImage" placeholder="Upload here your image" value="{{ $user->image }}"> --}}
-                    <img src="{{ asset('/uploads/images/'. $user->image) }}" style="width: 150px; height: 150px; border-radius: 50%; display: block; margin-left: auto; margin-right: auto;" class="card-img-top">
+                   {{--  <input type="file" name="myFile" class="form-control" id="exampleInputImage" placeholder="Upload here your image" value="{{ $users->image }}"> --}}
+                    <img src="{{ asset('/uploads/images/'. $users->image) }}" style="width: 150px; height: 150px; border-radius: 50%; display: block; margin-left: auto; margin-right: auto;" class="card-img-top">
                     <form enctype="multipart/form-data" action="/profile" method="POST">
                         <label>Update Profile Image</label>
                         <input type="file" name="image">
-                        <input type="hidden" name="_token" value="{{ csrf_token()}}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="submit" class="pull-right btn btn-sm btn-primary">
                     </form>
                   </div>

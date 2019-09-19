@@ -10,14 +10,15 @@
         @foreach($users as $user)
         <div class="card">
             <div class="card-header">
-            {{--   <img src="/storage/">
- --}}
+               <img src="{{asset('/uploads/images')}}/{{$user->image}}" class="img-fluid" alt="">
+
             </div>
 
             <div class="card-body">
-                <p>Username</p>
+                <div>Username:</div>
               {{ $user->username }}
-              <p>Name</p>
+              <br>
+              <div>Name:</div>
               {{ $user->first_name }}
 
             </div>

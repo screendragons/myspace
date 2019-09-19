@@ -19,7 +19,7 @@ Route::resource('/profile', 'ProfileController');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
-Route::get('/profile', 'ProfileController@update_image');
+Route::post('/profile', 'ProfileController@update_image');
 
 // Route::get('/profile', 'Profilecontroller@edit')->name('edit');
 

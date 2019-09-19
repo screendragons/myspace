@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('address');
             $table->string('zipcode')->nullable();
-            $table->string('image')->default('default.png');
+            $table->string('image')->default('default.jpg');
             $table->integer('relationship_status')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();

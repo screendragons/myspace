@@ -35,49 +35,45 @@
                   <div class="form-group">
                     <label for="exampleInputUsername">Username</label>
                       <p>
-                        <input type="username" class="form-control" id="exampleInputUsername" placeholder="Username" value="{{ $users->username }}">
+                        <input type="username" class="form-control" id="exampleInputUsername" placeholder="Username" value="{{ $user->username }}">
                       </p>
                     {{-- <input type="username" class="form-control" id="exampleInputUsername" placeholder="Username"> --}}
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFirstname">First name</label>
-                    <input type="first_name" class="form-control" id="exampleInputFirst_name" placeholder="First name" value="{{ $users->first_name }}">
+                    <input type="first_name" class="form-control" id="exampleInputFirst_name" placeholder="First name" value="{{ $user->first_name }}">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputLastname">Last name</label>
-                    <input type="last_name" class="form-control" id="exampleInputLast_name" placeholder="Last name" value="{{ $users->last_name }}">
+                    <input type="last_name" class="form-control" id="exampleInputLast_name" placeholder="Last name" value="{{ $user->last_name }}">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" value="{{ $users->password }}">
+                    <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" value="{{ $user->password }}">
                   </div>
                   <div class="form-group">
                       <label for="exampleInputEmail">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{ $users->email }}">
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{ $user->email }}">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputAddress">Address</label>
-                    <input type="address" class="form-control" id="exampleInputAddress" placeholder="Address" value="{{ $users->address }}">
+                    <input type="address" class="form-control" id="exampleInputAddress" placeholder="Address" value="{{ $user->address }}">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputZipcode">Zipcode</label>
-                    <input type="zipcode" class="form-control" id="exampleInputZipcode" placeholder="Zipcode" value="{{ $users->zipcode }}">
+                    <input type="zipcode" class="form-control" id="exampleInputZipcode" placeholder="Zipcode" value="{{ $user->zipcode }}">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputImage">Image</label>
-                    <input type="file" name="myFile" class="form-control" id="exampleInputImage" placeholder="Upload here your image" value="{{ $users->image }}">
+                   {{--  <input type="file" name="myFile" class="form-control" id="exampleInputImage" placeholder="Upload here your image" value="{{ $user->image }}"> --}}
+                    <img src="{{ asset('/uploads/images/'. $user->image) }}" style="width: 150px; height: 150px; border-radius: 50%; display: block; margin-left: auto; margin-right: auto;" class="card-img-top">
+                    <form enctype="multipart/form-data" action="/profile" method="POST">
+                        <label>Update Profile Image</label>
+                        <input type="file" name="image">
+                        <input type="hidden" name="_token" value="{{ csrf_token()}}">
+                        <input type="submit" class="pull-right btn btn-sm btn-primary">
+                    </form>
                   </div>
-                  {{-- <div class="form-group">
-                      <label for="exampleInputAddress1">Relationship status</label>
-                      <div class="dropdown">
-                          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose
-                          <span class="caret"></span></button>
-                          <ul class="dropdown-menu">
-                              <li><a href="#">Single</a></li>
-                              <li><a href="#">In relationship</a></li>
-                          </ul>
-                     </div>
-                  </div> --}}
                   <form>
                     <label for="exampleInputImage">Relationship status</label><br>
                     <input type="checkbox" name="single" value="single">Single<br>

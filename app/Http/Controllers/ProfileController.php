@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use App\Profile;
 use App\User;
 use Auth;
-use Redirect;
+// use Redirect;
 use DB;
+use Image;
 
 class ProfileController extends Controller
 {
@@ -164,31 +165,19 @@ class ProfileController extends Controller
     {
         //
     }
-    public function update_image(Request $request)
-    {
-        $user = User::find(Auth::user()->id);
-        if ($request->hasFile('image')) {
+
+    public function update_image(Request $request) {
+        // Handle the user upload of avatar
+        if($request->hasFile('image')) {
             $image = $request->file('image');
-            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $filename = time() . '.' . $avatar->getClientOrginalExtension();
+                Image::make($image)->resize(300, 300)->save( public_path('/uploads/images' . $filename));
 
-            if ($user->image !== 'default.png') {
-                $file = 'images/image/' . $user->image;
-
-                if (File::exists($file)) {
-
-                     unlink($file);
-
-
-                }
-
-            }
-            User::make($image)->fit(300, 300)->save('storage/profile_images/' . $filename);
             $user = Auth::user();
             $user->image = $filename;
-            $user->save();
+            $user->save;
+        }
 
-
-            }
-            return Redirect::to('profile');
+        return view('profile', array('user' => Auth::user()) );
     }
 }

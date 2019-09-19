@@ -19,9 +19,9 @@ Route::resource('/profile', 'ProfileController');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
-Route::get('/profile', 'Profilecontroller@update_image');
+Route::get('/profile', 'ProfileController@update_image');
 
-Route::get('/profile', 'Profilecontroller@edit')->name('edit');
+// Route::get('/profile', 'Profilecontroller@edit')->name('edit');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

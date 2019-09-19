@@ -31,13 +31,24 @@
               </div>
               <br>
               <h5>Edit profile</h5>
-              <form>
+
+                <div class="form-group">
+                  <label for="exampleInputImage">Image</label>
+                 {{--  <input type="file" name="myFile" class="form-control" id="exampleInputImage" placeholder="Upload here your image" value="{{ $userss->image }}"> --}}
+                  <img src="{{ asset('/uploads/images/'. $users->image) }}" style="width: 150px; height: 150px; border-radius: 50%; display: block; margin-right: auto;" class="card-img-top">
+                  <form enctype="multipart/form-data" action="/profile" method="POST">
+                      <label>Update profile image</label>
+                      <input type="file" name="image">
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      <input type="submit" class="pull-right btn btn-sm btn-primary">
+                  </form>
+
+
+                </div>
+                <form method="POST" action="{{ route('profile.update',[$users->id]) }}">
                   <div class="form-group">
-                    <label for="exampleInputusersname">usersname</label>
-                      <p>
-                        <input type="usersname" class="form-control" id="exampleInputusersname" placeholder="usersname" value="{{ $users->usersname }}">
-                      </p>
-                    {{-- <input type="usersname" class="form-control" id="exampleInputusersname" placeholder="usersname"> --}}
+                    <label for="exampleInputuserssname">usersname</label>
+                        <input type="usersname" class="form-control" id="exampleInputuserssname" placeholder="usersname" value="{{ $users->username }}">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFirstname">First name</label>
@@ -63,23 +74,13 @@
                     <label for="exampleInputZipcode">Zipcode</label>
                     <input type="zipcode" class="form-control" id="exampleInputZipcode" placeholder="Zipcode" value="{{ $users->zipcode }}">
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputImage">Image</label>
-                   {{--  <input type="file" name="myFile" class="form-control" id="exampleInputImage" placeholder="Upload here your image" value="{{ $users->image }}"> --}}
-                    <img src="{{ asset('/uploads/images/'. $users->image) }}" style="width: 150px; height: 150px; border-radius: 50%; display: block; margin-left: auto; margin-right: auto;" class="card-img-top">
-                    <form enctype="multipart/form-data" action="/profile" method="POST">
-                        <label>Update Profile Image</label>
-                        <input type="file" name="image">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="submit" class="pull-right btn btn-sm btn-primary">
-                    </form>
-                  </div>
-                  <form>
+
+                  {{-- <form>
                     <label for="exampleInputImage">Relationship status</label><br>
                     <input type="checkbox" name="single" value="single">Single<br>
                     <input type="checkbox" name="in relationship" value="in relationship">In relationship<br>
-                    <input type="submit" value="Submit" class="btn btn-primary">
-                  </form>
+                  </form> --}}
+                  <input type="submit" value="Submit" class="btn btn-primary">
               </form>
               <br>
               <br>

@@ -57,7 +57,7 @@
 
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('profile') }}">{{ __('My profile') }}</a>
+                                <a class="nav-link" href="{{route('profile', ['users' => $users->id]) }}"></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('home') }}">{{ __('Home') }}</a>

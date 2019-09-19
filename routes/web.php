@@ -21,7 +21,7 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::post('/profile', 'ProfileController@update_image');
 
-// Route::get('/profile', 'Profilecontroller@edit')->name('edit');
+// Route::post('/profile/{profile}', 'ProfileController@update')->name('profile.update');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

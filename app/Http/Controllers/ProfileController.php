@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Profile;
 use App\User;
 use Auth;
-// use Redirect;
+use Redirect;
 use DB;
 use Image;
 
@@ -49,49 +49,41 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'file' => 'image|nullable|max:1999'
-        ]);
+        // $this->validate($request, [
+        //     'file' => 'image|nullable|max:1999'
+        // ]);
 
-        // Handle file upload
-        if($request->hasFile('file')){
-            // dd('here');
-            // Get file name with extension
-            $filenameWithExt = $request->file('file')->getClientOriginalName();
-            // Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just ext
-            $extension = $request->file('file')->getClientOriginalName();
-            // Filename to store
-            $fileNameToStore = str_slug($filename.'_'.time()).'.'.$extension;
-            // Upload Image
-            Profile::make($request->file('file'))
-                ->resize(600, 300, function($constraint){
-                    $constraint->aspectRatio();
-                })
-                ->save(storage_path('app\\public\\'.$fileNameToStore));
-                // ->storeAs('public', $fileNameToStore);
-            // $path = $request->file('file')->storeAs('public', $fileNameToStore);
-            // $image = $request->file('file');
-            // $imageName = $image->getClientOriginalName();
-            // $image->move(public_path('images'),$filenameWithExt);
-        } else {
-            $fileNameToStore = 'no_image.jpg';
-        }
 
-        $upload = new Upload();
-        $upload->user_id = Auth::id();
-        $upload->name = $request->title;
-        $upload->filename = $fileNameToStore;
-        $upload->description = $request->body;
-        $upload->media_type = '';
-        $upload->datasize = 1;
-        $upload->save();
+        // if($request->hasFile('file')){
 
-        // dd($upload);
+        //     $filenameWithExt = $request->file('file')->getClientOriginalName();
 
-        // return redirect()->back();
-         return redirect('profile');
+        //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+        //     $extension = $request->file('file')->getClientOriginalName();
+
+        //     $fileNameToStore = str_slug($filename.'_'.time()).'.'.$extension;
+
+        //     Profile::make($request->file('file'))
+        //         ->resize(600, 300, function($constraint){
+        //             $constraint->aspectRatio();
+        //         })
+        //         ->save(storage_path('app\\public\\'.$fileNameToStore));
+
+        // } else {
+        //     $fileNameToStore = 'no_image.jpg';
+        // }
+
+        // $upload = new Upload();
+        // $upload->user_id = Auth::id();
+        // $upload->name = $request->title;
+        // $upload->filename = $fileNameToStore;
+        // $upload->description = $request->body;
+        // $upload->media_type = '';
+        // $upload->datasize = 1;
+        // $upload->save();
+
+         // return redirect('profile');
     }
 
     /**
@@ -132,21 +124,20 @@ class ProfileController extends Controller
 
             // logica
             $user = User::findOrFail($id);
+            // $user->image = $request->image;
             $user->username = $request->username;
             $user->first_name = $request->first_name;
             $user->last_name = $request->last_name;
             $user->email = $request->email;
-            $user->password = $request->password;
+            // $user->password = $request->password;
             $user->address = $request->address;
             $user->zipcode = $request->zipcode;
-            $user->image = $request->image;
-            $user->relationship_status = $request->relationship_status;
+
+            // $user->relationship_status = $request->relationship_status;
             $user->save();
 
             DB::commit();
             return redirect::back();
-
-
         }
         catch(Exception $e) {
             // later

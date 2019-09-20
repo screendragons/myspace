@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Like;
+use DB;
+use Image;
+
+
 
 class LikesController extends Controller
 {
@@ -13,7 +19,8 @@ class LikesController extends Controller
      */
     public function index()
     {
-        return view('likes');
+        $users = DB::table('users')->get();
+        return view('likes')->with('users', $users);
     }
 
     /**
@@ -32,11 +39,26 @@ class LikesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+   public function store(Request $request, $id)
     {
-        //
-    }
+       $like = Like::where('users_id', Auth::id())->where('profile_id', $id)->count();
 
+       if ($like) {
+           // remove like
+           $like = Like::where('users_id', Auth::id())->where('profile_id', $id)->delete();
+       }
+       else {
+           //store like
+           $like = new Like();
+           $like->users_id = Auth::id();
+           $like->profile_id = $id;
+           $like->like = 1;
+           $like->save();
+
+
+       }
+       return redirect()->back();
+    }
     /**
      * Display the specified resource.
      *

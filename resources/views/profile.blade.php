@@ -39,7 +39,7 @@
                   <form enctype="multipart/form-data" action="/profile" method="POST">
                       <label>Update profile image</label>
                       <input type="file" name="image">
-                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
                       <input type="submit" class="pull-right btn btn-sm btn-primary">
                   </form>
 

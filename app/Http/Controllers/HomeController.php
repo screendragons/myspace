@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use DB;
 use Image;
+use Profile;
 
 class HomeController extends Controller
 {
@@ -18,6 +19,19 @@ class HomeController extends Controller
     {
         $users = DB::table('users')->get();
         return view('home')->with('users', $users);
+
+        $profile = profile::select('profile.*')
+            ->with('users')
+            ->orderBy('profile.id', 'desc')->paginate(2);
+
+        $userLikes = Like::where('user_id', Auth::id())
+            ->pluck('profile_id')->toArray();
+
+
+        return view('home')
+            ->with('profile', $profile)
+            ->with('userLikes', $userLikes);
+
     }
 
     /**
@@ -84,5 +98,17 @@ class HomeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function like( $id){
+        $userLikes = DB::table('likes')->insert([
+            'profile_id' => $id,
+            'users_id' => Auth::user()->id,
+            'created_at' =>\Carbon\Carbon::now()->toDateTimeString()
+        ]);
+
+        if($userLikes){
+            return upload::with('users')->orderBy('created_at', 'DESC')->get();
+        }
     }
 }

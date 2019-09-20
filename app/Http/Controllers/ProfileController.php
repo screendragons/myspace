@@ -9,6 +9,7 @@ use Auth;
 use Redirect;
 use DB;
 use Image;
+use Likes;
 
 class ProfileController extends Controller
 {

@@ -29,12 +29,10 @@ Route::get('/contact', 'ContactController@index')->name('contact');
 
 // Route::get('/profile/upload', 'UploadController@index')->name('upload');
 
-Route::get('/profile/likes', 'LikesController@index')->name('likes');
+Route::resource('/likes', 'LikesController');
+Route::get('/likes', 'LikesController@index')->name('likes');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
-Route::get('/addFavorite', 'FavoriteController@store');
-Route::get('/removeFavorite', 'FavoriteController@destroy');
 
 Auth::routes();
 

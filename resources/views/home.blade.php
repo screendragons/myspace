@@ -14,6 +14,7 @@
               <h5 class="card-title">{{ $user->username }}</h5>
               <p class="card-text"> {{ $user->first_name }} {{ $user->last_name }}</p>
               <div class="interacrion">
+                {{-- <a class="btn btn-primary" href="{{}}"> --}}
                 {{-- <a href="{{ route('like', ['profile_id' => $profile->id]) }}" class="like btn btn-primary">
                     {{ (in_array($profile->id, $userLikes)) ? 'You like this post' : 'Like'}}
                 </a> --}}
